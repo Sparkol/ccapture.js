@@ -1,5 +1,11 @@
 ;(function() {
 
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  var Tar = require('./tar.js');
+  var download = require('./download.js');
+  var GIF = require('./gif.js');
+}
+
 "use strict";
 
 var objectTypes = {
@@ -719,7 +725,7 @@ function CCapture( settings ) {
 			return _performanceTime;
 		};
 
-		function hookCurrentTime() { 
+		function hookCurrentTime() {
 			if( !this._hooked ) {
 				this._hooked = true;
 				this._hookedTime = this.currentTime || 0;
